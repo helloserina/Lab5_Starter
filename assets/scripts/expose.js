@@ -3,8 +3,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  // TODO
-
   // Sets the image
   document.querySelector('select').addEventListener('input',  function() {
     changeHorn(document.querySelector('select'));
@@ -14,6 +12,37 @@ function init() {
   document.querySelector('button').addEventListener("click", function() {
     playAudio();
   });
+
+  //to change volume
+  document.querySelector('input').addEventListener('change',function(){
+    changeVolume(document.getElementById("volume-controls"));
+  });
+  //console.log(volImg);
+}
+
+function changeVolume(audio){
+  //var volRange = audio.querySelector('value');
+  var volImg = audio.querySelector('img');
+  var volSound = audio.querySelector('audio');
+  var range = audio.querySelector('input');
+  if(range.value == 0){
+    volImg.src="assets/icons/volume-level-0.svg"; 
+    volImg.alt="Volume level 0";
+    //console.log(volImg);
+  } 
+  else if(range.value >= 1 && range.value < 32) {
+    volImg.src="assets/icons/volume-level-1.svg"; 
+    volImg.alt="Volume level 1";
+    //console.log(volImg);
+  }
+  else if(range.value >= 33 && range.value < 67) {
+    volImg.src="assets/icons/volume-level-2.svg";
+    volImg.alt="Volume level 2";
+  }
+  else{
+    volImg.src="assets/icons/volume-level-3.svg"; 
+    volImg.alt="Volume level 3";
+  }
 }
 
 function changeHorn(hornImage) {
