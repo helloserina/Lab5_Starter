@@ -1,2 +1,2 @@
 # Lab 5 - Starter
-hello
+Serina Khanna and Jianghua Lu (Sarah)
